@@ -15,7 +15,7 @@ Output: False
 def has_duplicates(product_ids):
     return len(product_ids) != len(set(product_ids))
 
-#I choose to do a set because, sets dont store any duplicate items, so if we compare the initial input to the set, if it has the same items, they do not have duplicates however if it changes they have duplicates
+#I choose to do a set because, sets dont store any duplicate items, so if we compare the initial input to the set, if it has the same items, they do not have duplicates however if it changes they have duplicates, the expected run time is super short
 
 """
 Problem 2: Order Manager
@@ -59,7 +59,7 @@ class TaskQueue:
         return removed_task.value
         
 Taskqueue = TaskQueue() 
-# I choose a Queue becuase we need to keep a list of the task in the order they are, so the keep the principle of FIFO first in first out, then I created a Node, and then we created the self.front and the self.rear to keep track of the first and the last item, in the add task we keep track of the back of the line. so if we add a task the rear changes to the next item i added, this haapens in the remove but in the opposite 
+# I choose a Queue becuase we need to keep a list of the task in the order they are, so the keep the principle of FIFO first in first out, then I created a Node, and then we created the self.front and the self.rear to keep track of the first and the last item, in the add task we keep track of the back of the line. so if we add a task the rear changes to the next item i added, this haapens in the remove but in the opposite. the expected run time is short but if we include more items it will be more slow 
 """
 Problem 3: Unique Value Counter
 
@@ -85,4 +85,4 @@ class UniqueTracker:
 
 tracker = UniqueTracker()
 
-#I choose a set cause i can store unique values, and then que created an add to add the values to the set and then when we want to return the unique count, we just len(self.items) to count how many they are
+#I choose a set cause i can store unique values, and then que created an add to add the values to the set and then when we want to return the unique count, we just len(self.items) to count how many they are. the expected run time is super short
