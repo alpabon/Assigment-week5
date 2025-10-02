@@ -13,8 +13,8 @@ Output: False
 """
 
 def has_duplicates(product_ids):
-    # Your implementation here
-    pass
+    return len(product_ids) != len(set(product_ids))
+
 
 
 """
@@ -30,17 +30,35 @@ task_queue.add_task("Code review")
 task_queue.remove_oldest_task() → "Email follow-up"
 """
 
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
 class TaskQueue:
     def __init__(self):
-        # Your initialization here
-        pass
-
+        self.front = None
+        self.rear =  None
+    
     def add_task(self, task):
-        pass
+        new_node = Node(task)
+        if not self.rear:
+            self.front = new_node
+            self.rear = new_node
+        else:
+            self.rear.next = new_node
+            self.rear = new_node
 
     def remove_oldest_task(self):
-        pass
 
+        if not self.front:
+            return None
+        removed_task = self.front
+        self.front = self.front.next
+        if not self.front: 
+            self.rear = None
+        return removed_task.value
+        
+Taskqueue = TaskQueue() 
 
 """
 Problem 3: Unique Value Counter
@@ -57,10 +75,12 @@ tracker.get_unique_count() → 2
 
 class UniqueTracker:
     def __init__(self):
-        pass
+        self.items = set()
 
     def add(self, value):
-        pass
+        self.items.add(value)
 
     def get_unique_count(self):
-        pass
+        return len(self.items)
+
+tracker = UniqueTracker()
